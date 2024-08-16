@@ -1,4 +1,5 @@
 import {
+  BadRequestException,
   HttpException,
   Injectable,
   UnauthorizedException,
@@ -18,12 +19,12 @@ export class AuthService {
   async signIn(username: string, pass: string): Promise<any> {
     const user = await this.userService.findByUsername(username);
     if (!user) {
-      throw new UnauthorizedException('此账号未注册');
+      throw new BadRequestException('此账号未注册');
     }
     const isMatch = await bcrypt.compare(pass, user?.password);
 
     if (!isMatch) {
-      throw new UnauthorizedException('密码错误');
+      throw new BadRequestException('密码错误');
     }
 
     const payload = { sub: user.userId, username: user.username };
