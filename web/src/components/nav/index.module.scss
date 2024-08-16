@@ -1,0 +1,22 @@
+.header {
+    display: flex;
+    align-items: center;
+
+    .input {
+        margin-left: 20px;
+    }
+
+    .btn {
+        margin-left: 20px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+
+    .headicon {
+        width: 32px;
+        height: 32px;
+        margin-left: 20px;
+    }
+}

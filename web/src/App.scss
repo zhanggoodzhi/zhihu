@@ -1,0 +1,7 @@
+.hover-item {
+    cursor: pointer;
+
+    &:hover {
+        opacity: .8;
+    }
+}
